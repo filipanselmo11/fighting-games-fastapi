@@ -1,3 +1,5 @@
+#Single Responsibility Principle
+
 from app.shared.database import Base
 import uuid
 from sqlalchemy.dialects.postgresql import UUID

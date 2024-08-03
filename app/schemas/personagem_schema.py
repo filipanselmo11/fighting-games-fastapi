@@ -1,8 +1,14 @@
 from pydantic import BaseModel
 import uuid
 
+class PersonagemRequest(BaseModel):
+    nome: str
+    img: str
+    descricao: str
+    jogo: str
+
 class PersonagemResponse(BaseModel):
-    id: uuid
+    id: uuid.UUID
     nome: str
     img: str
     descricao: str
@@ -10,10 +16,3 @@ class PersonagemResponse(BaseModel):
 
     class Config:
         from_attributes = True
-
-
-class PersonagemRequest(BaseModel):
-    nome: str
-    img: str
-    descricao: str
-    jogo: str

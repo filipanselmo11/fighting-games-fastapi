@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-
+from app.routers import personagen_routers
 app = FastAPI()
 
 origins = [
@@ -12,7 +12,7 @@ origins = [
 async def root():
     return "Olá mundo"
 
-
+app.include_router(personagen_routers.router)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
