@@ -36,7 +36,7 @@ def update_personagem(personagem_id: uuid.UUID, personagem: PersonagemUpdate, se
     personagem_atualizado = service.update_personagem(personagem_id, personagem)
     if not personagem_atualizado:
         raise HTTPException(status_code=404, detail="Personagem not found")
-    return personagem_atualizado
+    return personagem_atualizade
 
 @router.delete("/personagens/{personagem_id}")
 def delete_personagem(personagem_id: uuid.UUID, service: PersonagemService = Depends(get_personagem_service)):
