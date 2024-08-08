@@ -1,26 +1,9 @@
 services:
-  db:
-    image: postgres:latest
-    container_name: fg_games_container
-    ports:
-      - "5432:5432"
-    environment:
-      POSTGRES_USER: "admin"
-      POSTGRES_PASSWORD: "password"
-      POSTGRES_DB: "fighting_games_db"
-    volumes:
-      - db:/var/lib/postgresql/data
-
   web:
     container_name: fg_games_api
-    build: ./
-    depends_on:
-      - db
+    build: .
     environment:
-      DB_URL: "postgresql+psycopg2://admin:password@localhost/fighting_games_db"
+      DB_URL: "postgresql://admin:kPPeCR42zp6c38WIDXDY92L35BLbso9F@dpg-cqqjvirv2p9s73b8q9jg-a.oregon-postgres.render.com/fg_games_db"
     ports:
       - "8000:8000"
-volumes:
-  db:
-    driver: local
 
