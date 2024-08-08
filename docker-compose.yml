@@ -1,6 +1,6 @@
 services:
   web:
-    container_name: fg_games_api
+    container_name: fighting_games_api
     build: .
     environment:
       DB_URL: "postgresql://admin:kPPeCR42zp6c38WIDXDY92L35BLbso9F@dpg-cqqjvirv2p9s73b8q9jg-a.oregon-postgres.render.com/fg_games_db"
