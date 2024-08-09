@@ -19,16 +19,16 @@ def get_personagem_service(db: Session = Depends(get_db)) -> PersonagemService:
 def create_personagem(personagemRequest: PersonagemRequest, service: PersonagemService = Depends(get_personagem_service)):
     return service.create_personagem(personagemRequest)
 
-@router.get("/api/v1/personagens/{personagem_id}", response_model=PersonagemResponse)
-def get_personagem(personagem_id: uuid.UUID, service: PersonagemService = Depends(get_personagem_service)):
-    personagem = service.get(personagem_id)
-    if not personagem:
-        raise HTTPException(status_code=404, detail='Personagem com o id informado não foi encontrado')
-    return personagem
+# @router.get("/api/v1/personagens/{personagem_id}", response_model=PersonagemResponse)
+# def get_personagem(personagem_id: uuid.UUID, service: PersonagemService = Depends(get_personagem_service)):
+#     personagem = service.get(personagem_id)
+#     if not personagem:
+#         raise HTTPException(status_code=404, detail='Personagem com o id informado não foi encontrado')
+#     return personagem
 
-# @router.get("/api/v1/personagens", response_model=List[PersonagemResponse])
-# def list_personagens(service: PersonagemService = Depends(get_personagem_service)):
-#     return service.list_personagens()
+@router.get("/api/v1/personagens", response_model=List[PersonagemResponse])
+def list_personagens(service: PersonagemService = Depends(get_personagem_service)):
+    return service.list_personagens()
 
 '''
 @router.put("/personagens/{personagem_id}", response_model=PersonagemResponse)
