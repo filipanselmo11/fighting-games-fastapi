@@ -26,9 +26,9 @@ def get_personagem(personagem_id: uuid.UUID, service: PersonagemService = Depend
         raise HTTPException(status_code=404, detail='Personagem com o id informado não foi encontrado')
     return personagem
 
-@router.get("/api/v1/personagens", response_model=List[PersonagemResponse])
-def list_personagens(service: PersonagemService = Depends(get_personagem_service)):
-    return service.list_personagens()
+# @router.get("/api/v1/personagens", response_model=List[PersonagemResponse])
+# def list_personagens(service: PersonagemService = Depends(get_personagem_service)):
+#     return service.list_personagens()
 
 '''
 @router.put("/personagens/{personagem_id}", response_model=PersonagemResponse)
