@@ -6,7 +6,7 @@ app = FastAPI()
 origins = [
     "http://localhost",
     "http://localhost:4200",
-    "https://angular-fighting-games.vercel.app/"
+    "https://angular-fighting-games.vercel.app"
 ]
 
 @app.get('/')
